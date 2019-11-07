@@ -16,13 +16,28 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Paint paint = new Paint();
-        paint.setColor(Color.MAGENTA);
-        paint.setStrokeWidth(10);
-        int n = 20;//n * 2 - 1 is a number of lines
-        for(int i = 0; i < n;i++){//diagonal lines
-            canvas.drawLine(canvas.getWidth()*(i/n),0,canvas.getWidth(),canvas.getHeight()*(1 - (i/n)),paint);
-            canvas.drawLine(0,canvas.getHeight()*(i/n),canvas.getWidth()*(1-(i/n)),canvas.getHeight(),paint);
-        }
+        Paint paint1 = new Paint();
+        paint.setColor(Color.RED);
+        paint1.setColor(Color.BLUE);
+
+        //red rhombuses
+        canvas.drawLine(canvas.getWidth() / 4,0,0,canvas.getHeight() / 4,paint);
+        canvas.drawLine(0,canvas.getHeight() / 4,canvas.getWidth()*(3/4),canvas.getHeight(),paint);
+        canvas.drawLine(canvas.getWidth() / 4,0,canvas.getWidth(),canvas.getHeight()*(3/4),paint);
+        canvas.drawLine(canvas.getWidth(),canvas.getHeight()*(3 / 4),canvas.getWidth()*(3 / 4),canvas.getHeight(),paint);
+        canvas.drawLine(canvas.getWidth() * (3 / 4),0,0,canvas.getHeight() * (3 / 4),paint);
+        canvas.drawLine(canvas.getWidth() * (3 / 4),0,canvas.getWidth(),canvas.getHeight() / 4,paint);
+        canvas.drawLine(canvas.getWidth(),canvas.getHeight() / 4 ,canvas.getWidth() / 4 ,canvas.getHeight(),paint);
+        canvas.drawLine(0,canvas.getHeight() * (3 / 4),canvas.getWidth() / 4,canvas.getHeight(),paint);
+
+
+        //blue rhombuses
+        canvas.drawLine(canvas.getWidth() / 2 ,0,canvas.getWidth(),canvas.getHeight() / 2,paint1);
+        canvas.drawLine(canvas.getWidth() / 2 ,0,0,canvas.getHeight() / 2,paint1);
+        canvas.drawLine(canvas.getWidth() / 2,canvas.getHeight(),0,canvas.getHeight() / 2,paint1);
+        canvas.drawLine(canvas.getWidth() / 2,canvas.getHeight(),canvas.getWidth(),canvas.getHeight() / 2,paint1);
+        canvas.drawLine(canvas.getWidth() / 4,canvas.getHeight() / 4,canvas.getWidth() * (3 / 4),canvas.getHeight() * (3 / 4),paint1);
+        canvas.drawLine(canvas.getWidth() * (3 / 4),canvas.getHeight() / 4,canvas.getWidth() / 4,canvas.getHeight() * (3 / 4),paint1);
 
     }
 }
