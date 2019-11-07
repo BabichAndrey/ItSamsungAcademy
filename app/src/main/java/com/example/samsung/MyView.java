@@ -16,8 +16,28 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Paint paint = new Paint();
-        paint.setColor(Color.BLUE);
-        paint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(100, 100, 300, 300, paint);
+        Paint paint1 = new Paint();
+        paint.setColor(Color.RED);
+        paint1.setColor(Color.BLUE);
+
+        //red rhombuses
+        canvas.drawLine(canvas.getWidth() / 4,0,0,canvas.getHeight() / 4,paint);
+        canvas.drawLine(0,canvas.getHeight() / 4,canvas.getWidth()*(3/4),canvas.getHeight(),paint);
+        canvas.drawLine(canvas.getWidth() / 4,0,canvas.getWidth(),canvas.getHeight()*(3/4),paint);
+        canvas.drawLine(canvas.getWidth(),canvas.getHeight()*(3 / 4),canvas.getWidth()*(3 / 4),canvas.getHeight(),paint);
+        canvas.drawLine(canvas.getWidth() * (3 / 4),0,0,canvas.getHeight() * (3 / 4),paint);
+        canvas.drawLine(canvas.getWidth() * (3 / 4),0,canvas.getWidth(),canvas.getHeight() / 4,paint);
+        canvas.drawLine(canvas.getWidth(),canvas.getHeight() / 4 ,canvas.getWidth() / 4 ,canvas.getHeight(),paint);
+        canvas.drawLine(0,canvas.getHeight() * (3 / 4),canvas.getWidth() / 4,canvas.getHeight(),paint);
+
+
+        //blue rhombuses
+        canvas.drawLine(canvas.getWidth() / 2 ,0,canvas.getWidth(),canvas.getHeight() / 2,paint1);
+        canvas.drawLine(canvas.getWidth() / 2 ,0,0,canvas.getHeight() / 2,paint1);
+        canvas.drawLine(canvas.getWidth() / 2,canvas.getHeight(),0,canvas.getHeight() / 2,paint1);
+        canvas.drawLine(canvas.getWidth() / 2,canvas.getHeight(),canvas.getWidth(),canvas.getHeight() / 2,paint1);
+        canvas.drawLine(canvas.getWidth() / 4,canvas.getHeight() / 4,canvas.getWidth() * (3 / 4),canvas.getHeight() * (3 / 4),paint1);
+        canvas.drawLine(canvas.getWidth() * (3 / 4),canvas.getHeight() / 4,canvas.getWidth() / 4,canvas.getHeight() * (3 / 4),paint1);
+
     }
 }
