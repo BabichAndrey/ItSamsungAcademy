@@ -12,32 +12,15 @@ public class MyView extends View {
         super(context);
     }
 
+    Paint paint = new Paint();
+    float x = 0;
+    long lastTime = System.currentTimeMillis();
     @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        Paint paint = new Paint();
-        Paint paint1 = new Paint();
-        paint.setColor(Color.RED);
-        paint1.setColor(Color.BLUE);
-
-        //red rhombuses
-        canvas.drawLine(canvas.getWidth() / 4,0,0,canvas.getHeight() / 4,paint);
-        canvas.drawLine(0,canvas.getHeight() / 4,canvas.getWidth()*(3/4),canvas.getHeight(),paint);
-        canvas.drawLine(canvas.getWidth() / 4,0,canvas.getWidth(),canvas.getHeight()*(3/4),paint);
-        canvas.drawLine(canvas.getWidth(),canvas.getHeight()*(3 / 4),canvas.getWidth()*(3 / 4),canvas.getHeight(),paint);
-        canvas.drawLine(canvas.getWidth() * (3 / 4),0,0,canvas.getHeight() * (3 / 4),paint);
-        canvas.drawLine(canvas.getWidth() * (3 / 4),0,canvas.getWidth(),canvas.getHeight() / 4,paint);
-        canvas.drawLine(canvas.getWidth(),canvas.getHeight() / 4 ,canvas.getWidth() / 4 ,canvas.getHeight(),paint);
-        canvas.drawLine(0,canvas.getHeight() * (3 / 4),canvas.getWidth() / 4,canvas.getHeight(),paint);
-
-
-        //blue rhombuses
-        canvas.drawLine(canvas.getWidth() / 2 ,0,canvas.getWidth(),canvas.getHeight() / 2,paint1);
-        canvas.drawLine(canvas.getWidth() / 2 ,0,0,canvas.getHeight() / 2,paint1);
-        canvas.drawLine(canvas.getWidth() / 2,canvas.getHeight(),0,canvas.getHeight() / 2,paint1);
-        canvas.drawLine(canvas.getWidth() / 2,canvas.getHeight(),canvas.getWidth(),canvas.getHeight() / 2,paint1);
-        canvas.drawLine(canvas.getWidth() / 4,canvas.getHeight() / 4,canvas.getWidth() * (3 / 4),canvas.getHeight() * (3 / 4),paint1);
-        canvas.drawLine(canvas.getWidth() * (3 / 4),canvas.getHeight() / 4,canvas.getWidth() / 4,canvas.getHeight() * (3 / 4),paint1);
-
+    protected void onDraw(Canvas canvas){
+        canvas.drawCircle(x, 300, 20, paint);
+        long nowTime = System.currentTimeMillis();
+        x += 0.01f * (nowTime - lastTime);
+        lastTime = nowTime;
+        invalidate();
     }
 }
